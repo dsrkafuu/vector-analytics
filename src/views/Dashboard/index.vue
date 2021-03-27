@@ -212,6 +212,12 @@ export default {
     height: unset;
     flex-direction: column;
   }
+  @include responsive(desktop) {
+    &-hero {
+      height: unset;
+      flex-direction: column;
+    }
+  }
 }
 
 .range {
@@ -220,6 +226,12 @@ export default {
 
   .a-select {
     width: 100%;
+  }
+
+  @include responsive(desktop) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   @include responsive(tablet) {
@@ -242,10 +254,31 @@ export default {
 
 .summary {
   padding: $space-lg;
-  flex: 0 0 26%;
+  flex: 0 0 25%;
   display: flex;
   flex-direction: column;
   gap: $space-base;
+
+  @include responsive(desktop) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0;
+
+    .a-statistic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      ::v-deep &-value {
+        margin-top: 0;
+        margin-left: 2rem;
+      }
+      ::v-deep &-ctx {
+        font-size: $font-size-xl;
+      }
+    }
+  }
 
   @include responsive(tablet) {
     gap: 0;

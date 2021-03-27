@@ -46,7 +46,7 @@ $responsive-tablet: 800px;
 
 @mixin responsive($size) {
   @if $size == desktop {
-    @media screen and (max-width: $responsive-tablet + $responsive-offset) {
+    @media screen and (max-width: $responsive-desktop + $responsive-offset) and (min-width: $responsive-tablet + $responsive-offset) {
       @content;
     }
   } @else if $size == tablet {

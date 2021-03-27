@@ -6,7 +6,7 @@
     width: $responsive-tablet;
   }
 
-  @media screen and (max-width: $responsive-tablet) {
+  @media screen and (max-width: $responsive-tablet + $responsive-offset) {
     width: 100%;
   }
 }
