@@ -207,6 +207,11 @@ export default {
       flex: 1 1 40%;
     }
   }
+
+  @include responsive(tablet) {
+    height: unset;
+    flex-direction: column;
+  }
 }
 
 .range {
@@ -216,6 +221,11 @@ export default {
   .a-select {
     width: 100%;
   }
+
+  @include responsive(tablet) {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .data {
@@ -223,6 +233,10 @@ export default {
 
   .a-statlist {
     height: $dashboard-data-height;
+
+    @include responsive(tablet) {
+      height: unset;
+    }
   }
 }
 
@@ -232,6 +246,24 @@ export default {
   display: flex;
   flex-direction: column;
   gap: $space-base;
+
+  @include responsive(tablet) {
+    gap: 0;
+
+    .a-statistic {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      ::v-deep &-value {
+        margin-top: 0;
+        margin-left: 2rem;
+      }
+      ::v-deep &-ctx {
+        font-size: $font-size-xl;
+      }
+    }
+  }
 }
 
 .chart {
