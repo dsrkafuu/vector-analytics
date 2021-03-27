@@ -104,7 +104,13 @@ export default {
 <style lang="scss" scoped>
 .settings {
   display: flex;
-  margin: $space-lg;
+  margin: $space-base;
+
+  @include responsive(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: $space-base;
+  }
 }
 
 .ctrl {
@@ -117,6 +123,10 @@ export default {
 
 .content {
   flex: 1 1 auto;
-  margin-left: $space-lg;
+  margin-left: $space-base;
+
+  @include responsive(mobile) {
+    margin-left: 0;
+  }
 }
 </style>
