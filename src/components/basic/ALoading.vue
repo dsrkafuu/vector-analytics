@@ -36,5 +36,6 @@ export default {
   font-size: $font-size-sm;
   z-index: 20;
   background-color: var(--color-bg);
+  min-width: 6rem;
 }
 </style>

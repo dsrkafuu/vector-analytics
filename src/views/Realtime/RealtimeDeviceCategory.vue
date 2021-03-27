@@ -123,7 +123,18 @@ export default {
   position: relative;
   height: 90%;
   padding-top: $space-sm;
-  max-width: 14.5rem;
+  max-width: 12rem;
+  padding-top: 3rem;
   margin: 0 auto;
+
+  @include responsive(tablet) {
+    max-width: 10rem;
+    padding-top: 2rem;
+  }
+
+  @include responsive(mobile) {
+    max-width: 8rem;
+    padding-top: 1rem;
+  }
 }
 </style>

@@ -5,9 +5,9 @@
         <div class="range">
           <ASelect :map="rangeMap" v-model="range" />
         </div>
-        <AStatistic title="Page Views" :value="pageViews" :loading="!inited" />
-        <AStatistic title="Unique Visitors" :value="uniqueSessions" :loading="!inited" />
-        <AStatistic title="Avg. View Time" :value="pageViewTime" type="time" :loading="!inited" />
+        <AStatistic title="Page Views" :value="pageViews" :loading="true" />
+        <AStatistic title="Unique Visitors" :value="uniqueSessions" :loading="true" />
+        <AStatistic title="Avg. View Time" :value="pageViewTime" type="time" :loading="true" />
       </ACard>
       <ACard class="chart">
         <DashboardChart
@@ -208,11 +208,11 @@ export default {
     }
   }
 
-  @include responsive(tablet) {
+  @include responsive(mobile) {
     height: unset;
     flex-direction: column;
   }
-  @include responsive(desktop) {
+  @include responsive(tablet) {
     &-hero {
       height: unset;
       flex-direction: column;
@@ -228,13 +228,13 @@ export default {
     width: 100%;
   }
 
-  @include responsive(desktop) {
+  @include responsive(tablet) {
     width: 100%;
     display: flex;
     justify-content: center;
   }
 
-  @include responsive(tablet) {
+  @include responsive(mobile) {
     display: flex;
     justify-content: center;
   }
@@ -246,8 +246,12 @@ export default {
   .a-statlist {
     height: $dashboard-data-height;
 
-    @include responsive(tablet) {
+    @include responsive(mobile) {
       height: unset;
+
+      ::v-deep &-ctx {
+        min-height: 4rem;
+      }
     }
   }
 }
@@ -259,7 +263,7 @@ export default {
   flex-direction: column;
   gap: $space-base;
 
-  @include responsive(desktop) {
+  @include responsive(tablet) {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -272,7 +276,8 @@ export default {
 
       ::v-deep &-value {
         margin-top: 0;
-        margin-left: 2rem;
+        margin-left: 0;
+        min-width: 6rem;
       }
       ::v-deep &-ctx {
         font-size: $font-size-xl;
@@ -280,7 +285,7 @@ export default {
     }
   }
 
-  @include responsive(tablet) {
+  @include responsive(mobile) {
     gap: 0;
 
     .a-statistic {
@@ -291,6 +296,7 @@ export default {
       ::v-deep &-value {
         margin-top: 0;
         margin-left: 2rem;
+        min-width: 6rem;
       }
       ::v-deep &-ctx {
         font-size: $font-size-xl;

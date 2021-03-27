@@ -137,7 +137,7 @@ export default {
     line-height: $navbar-height;
   }
 
-  @include responsive(tablet) {
+  @include responsive(mobile) {
     height: $navbar-height-sm * 3;
 
     .a-container {
@@ -164,7 +164,7 @@ export default {
   flex: 1 1 auto;
   display: flex;
 
-  @include responsive(tablet) {
+  @include responsive(mobile) {
     flex-direction: column;
     align-items: center;
     justify-content: center;

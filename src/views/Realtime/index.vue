@@ -92,6 +92,22 @@ export default {
 
   &-hero {
     height: $realtime-hero-height;
+
+    @include responsive(tablet) {
+      height: $realtime-hero-height - 4rem;
+    }
+
+    @include responsive(mobile) {
+      height: $realtime-hero-height / 1.25;
+      flex-direction: column;
+    }
+  }
+
+  &-norm {
+    @include responsive(mobile) {
+      height: unset;
+      flex-direction: column;
+    }
   }
 }
 
@@ -101,6 +117,18 @@ export default {
   display: flex;
   flex-direction: column;
   gap: $space-lg;
+
+  @include responsive(mobile) {
+    flex-direction: row;
+    text-align: center;
+
+    & > div:first-child {
+      flex: 1 1 45%;
+    }
+    & > div:last-child {
+      display: none;
+    }
+  }
 }
 
 .map {
@@ -109,9 +137,18 @@ export default {
 
 .data {
   flex: 0 1 32.3%;
+  position: relative;
 
   .a-statlist {
     height: $realtime-data-height;
+
+    @include responsive(mobile) {
+      height: 100%;
+
+      ::v-deep &-ctx {
+        min-height: 4rem;
+      }
+    }
   }
 }
 </style>
