@@ -137,8 +137,16 @@ export default {
     line-height: $navbar-height;
   }
 
-  @media screen and (max-width: $responsive-tablet + $responsive-offset) {
-    height: $navbar-height-sm * 2;
+  @include responsive(tablet) {
+    height: $navbar-height-sm * 3;
+
+    .a-container {
+      flex-direction: column;
+      height: $navbar-height-sm * 3;
+      line-height: $navbar-height-sm;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 
@@ -155,6 +163,12 @@ export default {
 .menu {
   flex: 1 1 auto;
   display: flex;
+
+  @include responsive(tablet) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .select {

@@ -16,10 +16,6 @@ $space-xs: 0.25rem;
 
 $radius: 3px;
 
-$responsive-offset: 16px * 4;
-$responsive-desktop: 1080px;
-$responsive-tablet: 800px;
-
 $navbar-height: 3.25rem;
 $navbar-height-sm: 2.5rem;
 
@@ -43,3 +39,21 @@ $modal-min-height: 8rem;
 $dashboard-data-height: 22.25rem;
 $realtime-hero-height: 26rem;
 $realtime-data-height: 22.25rem;
+
+$responsive-offset: 16px * 4;
+$responsive-desktop: 1080px;
+$responsive-tablet: 800px;
+
+@mixin responsive($size) {
+  @if $size == desktop {
+    @media screen and (max-width: $responsive-tablet + $responsive-offset) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media screen and (max-width: $responsive-tablet + $responsive-offset) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
