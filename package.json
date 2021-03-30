@@ -23,7 +23,7 @@
     "axios": "~0.21.1",
     "bcryptjs": "~2.4.3",
     "bowser": "~2.11.0",
-    "chart.js": "3.0.0-rc.6",
+    "chart.js": "3.0.0-beta.11",
     "chartjs-chart-geo": "3.0.0-beta.9",
     "compression": "~1.7.4",
     "connect-history-api-fallback": "~1.6.0",
