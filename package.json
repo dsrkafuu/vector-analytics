@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "husky install",
-    "vercel-build": "cross-env NODE_ENV=production npm run build:api",
+    "vercel-build": "npm run build",
     "lint:web": "vue-cli-service lint",
     "lint:api": "eslint ./api",
     "lint": "npm-run-all lint:web lint:api",
@@ -15,8 +15,8 @@
     "dev": "cross-env NODE_ENV=development npm-run-all -p dev:api dev:web",
     "build:web": "cross-env NODE_ENV=production vue-cli-service build",
     "build:api": "cross-env NODE_ENV=production node ./utils/build.js",
-    "build": "cross-env NODE_ENV=production npm-run-all build:web build:api",
-    "start": "cross-env NODE_ENV=production node ./api/index.js"
+    "build": "cross-env NODE_ENV=production npm-run-all lint build:web build:api",
+    "start": "cross-env NODE_EsNV=production node ./api/index.js"
   },
   "dependencies": {
     "aofuji-tracker": "~0.1.5",
