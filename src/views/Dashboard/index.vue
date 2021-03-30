@@ -5,9 +5,9 @@
         <div class="range">
           <ASelect :map="rangeMap" v-model="range" />
         </div>
-        <AStatistic title="Page Views" :value="pageViews" :loading="true" />
-        <AStatistic title="Unique Visitors" :value="uniqueSessions" :loading="true" />
-        <AStatistic title="Avg. View Time" :value="pageViewTime" type="time" :loading="true" />
+        <AStatistic title="Page Views" :value="pageViews" :loading="!inited" />
+        <AStatistic title="Unique Visitors" :value="uniqueSessions" :loading="!inited" />
+        <AStatistic title="Avg. View Time" :value="pageViewTime" type="time" :loading="!inited" />
       </ACard>
       <ACard class="chart">
         <DashboardChart
