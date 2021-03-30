@@ -10,6 +10,8 @@ const dist = path.resolve(__dirname, '../dist');
 if (!fs.existsSync(dist)) {
   fs.mkdirSync(dist);
 }
+const meta = path.resolve(dist, './metadata');
+fs.writeFileSync(meta, `[AOFUJI] BUILD DATE ${new Date().toJSON()}`);
 
 // builders
 const buildGeoLite = require('./build-geolite');
