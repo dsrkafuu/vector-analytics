@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "husky install",
-    "vercel-build": "npm run build",
+    "vercel-build": "npm run build:api",
     "lint:web": "vue-cli-service lint",
     "lint:api": "eslint ./api",
     "lint": "npm-run-all lint:web lint:api",
