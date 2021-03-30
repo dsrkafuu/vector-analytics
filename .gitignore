@@ -10,6 +10,7 @@ api/assets/*.tar.gz
 # deps
 node_modules/
 .vercel
+package-lock.json
 
 # system
 Thumbs.db
