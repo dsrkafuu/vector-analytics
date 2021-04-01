@@ -14,11 +14,11 @@
         <AStatlist title="Page Views" :data="pageViews" :loading="!inited" />
       </ACard>
       <ACard class="data">
-        <AStatlist title="User Events" :data="userEvents" :loading="!inited" />
-      </ACard>
-      <ACard class="data">
         <AStatlist title="User Regions" :data="userRegions" :loading="!inited" />
       </ACard>
+      <!-- <ACard class="data">
+        <AStatlist title="User Events" :data="userEvents" :loading="!inited" />
+      </ACard> -->
     </div>
   </div>
 </template>
@@ -27,6 +27,8 @@
 import { mapState } from 'vuex';
 import RealtimeDeviceCategory from './RealtimeDeviceCategory.vue';
 import RealtimeMap from './RealtimeMap.vue';
+
+import countries from '@/assets/json/countries/en.json';
 
 export default {
   name: 'Realtime',
@@ -39,13 +41,22 @@ export default {
     curWebsite() {
       return this.$store.state.common.curWebsite?._id;
     },
+    userRegions() {
+      const regions = this.$store.state.realtime.userRegions;
+      regions.forEach((val, idx) => {
+        const code = val[0];
+        if (countries[code]) {
+          regions[idx][0] = countries[code];
+        }
+      });
+      return regions;
+    },
     ...mapState('realtime', [
       'inited',
       'activeUsers',
       'deviceCategorys',
       'pageViews',
       'userEvents',
-      'userRegions',
     ]),
   },
   watch: {
