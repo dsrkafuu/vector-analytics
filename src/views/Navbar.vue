@@ -7,7 +7,7 @@
           :to="{ name: 'Dashboard', query: curWebsite ? { website: curWebsite } : {} }"
           type="full-height"
         >
-          {{ siteTitle }}
+          Aofuji Analytics
         </ARouterLink>
       </div>
       <div class="menu">
@@ -61,10 +61,6 @@ export default {
   name: 'Navbar',
 
   computed: {
-    // site title from environment variables
-    siteTitle() {
-      return process.env.VUE_APP_TITLE || 'Aofuji Analytics';
-    },
     // should show logout button
     showLogout() {
       if (this.shareID) {

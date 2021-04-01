@@ -1,16 +1,12 @@
 const path = require('path');
 const fs = require('fs');
 
-const fileName = process.env.VUE_APP_TRACKER_FILENAME;
+const fileName = process.env.VUE_APP_TRACKER_FILENAME || 'aofuji.min.js';
 
 /**
  * build custom tracker to `dist`
  */
 function buildTracker() {
-  if (!fileName) {
-    return;
-  }
-
   const dist = path.resolve(__dirname, '../dist');
   if (!fs.existsSync(dist)) {
     fs.mkdirSync(dist);

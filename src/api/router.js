@@ -10,14 +10,39 @@ const authCheck = require('./middlewares/authCheck');
 const cacheControl = require('./middlewares/cacheControl');
 
 // routes
-router.use('/collect', cacheControl(), require('./routes/collect'));
-router.use('/login', cacheControl(), require('./routes/login'));
-router.use('/common', authCheck({ checkShare: true }), cacheControl(), require('./routes/common'));
+router.use('/collect', cacheControl({ allowCache: false }), require('./routes/collect'));
+router.use('/login', cacheControl({ allowCache: false }), require('./routes/login'));
+router.use(
+  '/common',
+  authCheck({ checkShare: true }),
+  cacheControl({ allowCache: false }),
+  require('./routes/common')
+);
 
-router.use('/admin/website', authCheck(), cacheControl(), require('./routes/admin/website'));
-router.use('/admin/account', authCheck(), cacheControl(), require('./routes/admin/account'));
-router.use('/admin/share', authCheck(), cacheControl(), require('./routes/admin/share'));
-router.use('/admin/debug', authCheck(), cacheControl(), require('./routes/admin/debug'));
+router.use(
+  '/admin/website',
+  authCheck({ checkShare: false }),
+  cacheControl({ allowCache: false }),
+  require('./routes/admin/website')
+);
+router.use(
+  '/admin/account',
+  authCheck({ checkShare: false }),
+  cacheControl({ allowCache: false }),
+  require('./routes/admin/account')
+);
+router.use(
+  '/admin/share',
+  authCheck({ checkShare: false }),
+  cacheControl({ allowCache: false }),
+  require('./routes/admin/share')
+);
+router.use(
+  '/admin/debug',
+  authCheck({ checkShare: false }),
+  cacheControl({ allowCache: false }),
+  require('./routes/admin/debug')
+);
 
 router.use(
   '/metrics/dashboard',
@@ -27,6 +52,7 @@ router.use(
 );
 router.use(
   '/metrics/realtime',
+  authCheck({ checkShare: false }),
   cacheControl({ allowCache: true }),
   require('./routes/metrics/realtime')
 );

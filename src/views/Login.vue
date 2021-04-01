@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <ACard class="card">
-      <AHeader :text="siteTitle" />
+      <AHeader text="Aofuji Analytics" />
       <div class="line">
         <span>Username</span>
         <AInput v-model="username" :validator="validUsername" />
@@ -33,15 +33,8 @@ export default {
     return {
       username: '',
       password: '',
-
       awaitingLogin: false,
     };
-  },
-  computed: {
-    // site title from environment variables
-    siteTitle() {
-      return process.env.VUE_APP_TITLE || 'Aofuji Analytics';
-    },
   },
 
   methods: {

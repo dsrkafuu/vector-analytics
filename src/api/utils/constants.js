@@ -20,4 +20,4 @@ module.exports.JWT_DEFAULT_SECRET = 'aofuji_token-secret';
 module.exports.CHART_PIXEL_RATIO = 2;
 module.exports.CHART_MAP_PIXEL_RATIO = 3;
 module.exports.CHART_MAP_TOPOJSON =
-  'https://cdn.jsdelivr.net/gh/amzrk2/dsr-cdn@1.1/json/world-110m.min.json';
+  'https://cdn.jsdelivr.net/gh/dsrkafuu/dsr-cdn@1.1/json/world-110m.min.json';

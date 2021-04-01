@@ -1,4 +1,5 @@
 /*! aofuji-analytics | DSRKafuU (https://dsrkafuu.su) | Copyright (c) MIT License */
+
 require('../utils/env')();
 
 const app = require('../src/api');
