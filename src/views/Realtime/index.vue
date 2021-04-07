@@ -14,7 +14,7 @@
         <AStatlist title="Page Views" :data="pageViews" :loading="!inited" />
       </ACard>
       <ACard class="data">
-        <AStatlist title="User Regions" :data="userRegions" :loading="!inited" />
+        <AStatlist title="User Regions" :data="userRegionsDisplay" :loading="!inited" />
       </ACard>
       <!-- <ACard class="data">
         <AStatlist title="User Events" :data="userEvents" :loading="!inited" />
@@ -25,6 +25,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import { cloneDeep } from '@/utils/lodash';
 import RealtimeDeviceCategory from './RealtimeDeviceCategory.vue';
 import RealtimeMap from './RealtimeMap.vue';
 
@@ -38,11 +39,13 @@ export default {
   },
 
   computed: {
+    // current selected website
     curWebsite() {
       return this.$store.state.common.curWebsite?._id;
     },
-    userRegions() {
-      const regions = this.$store.state.realtime.userRegions;
+    // user regions with translated display name
+    userRegionsDisplay() {
+      const regions = cloneDeep(this.$store.state.realtime.userRegions);
       regions.forEach((val, idx) => {
         const code = val[0];
         if (countries[code]) {
@@ -57,6 +60,7 @@ export default {
       'deviceCategorys',
       'pageViews',
       'userEvents',
+      'userRegions',
     ]),
   },
   watch: {
