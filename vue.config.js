@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.VUE_APP_BASE_URL || '/',
-  productionSourceMap: false,
+
   // dev server proxy
   devServer: {
     port: process.env.SERVER_PORT || 3000,
@@ -11,6 +11,7 @@ module.exports = {
       },
     },
   },
+
   // inject css variables
   css: {
     loaderOptions: {
@@ -19,6 +20,8 @@ module.exports = {
       },
     },
   },
+
+  // custom svg loader
   chainWebpack: (config) => {
     // svg inject loader
     const svgRule = config.module.rule('svg');

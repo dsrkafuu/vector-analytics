@@ -1,3 +1,5 @@
+import { version } from '../../package.json';
+
 /**
  * format number
  * @param {number} number
@@ -82,8 +84,11 @@ export function fmtCode(id = '') {
 
   return `<script
   async
-  data-vaid="${id}"
-  data-vaapi="${origin + base}api"
-  src="https://cdn.jsdelivr.net/npm/aofuji-tracker@0.1/lib/aofuji.min.js"
+  data-aoid="${id}"
+  data-aoapi="${origin + base}api"
+  src="https://cdn.jsdelivr.net/npm/aofuji-tracker@${version
+    .split('.')
+    .slice(0, 2)
+    .join('.')}/lib/aofuji.min.js"
 ></script>`;
 }
