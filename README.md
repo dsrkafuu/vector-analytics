@@ -37,7 +37,7 @@ cd aofuji-analytics
 Checkout the latest release after cloned:
 
 ```sh
-git checkout v0.1.0
+git checkout v0.1.3
 ```
 
 > You can get the latest release tag at [release page](https://github.com/dsrkafuu/aofuji-analytics/releases).
@@ -73,7 +73,7 @@ When the server starts up at port 3000, you can expose it directly to the public
 
 ```sh
 git fetch
-git checkout v0.1.1 # latest tags will show in terminal when fetch
+git checkout v0.1.3 # latest tags will show in terminal when fetch
 ```
 
 #### Update Deps and Build
