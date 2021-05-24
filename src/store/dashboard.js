@@ -54,8 +54,12 @@ export default {
     async xaFetchAll({ commit }, payload) {
       const { _id, range, step } = payload;
       // calculate from to
-      // const to = 1612846952100; // [DEBUG]
-      const to = Date.now();
+      let to = Date.now();
+      // [DEBUG]
+      if (process.env.VUE_APP_DATA_DEV) {
+        to = 1618617600000;
+      }
+      // [DEBUG]
       const from = to - range;
       // fetch data
       const res = await $api.get(
@@ -71,7 +75,12 @@ export default {
       const { _id, range, step, share } = payload;
       if (share) {
         // calculate from to
-        const to = Date.now();
+        let to = Date.now();
+        // [DEBUG]
+        if (process.env.VUE_APP_DATA_DEV) {
+          to = 1618617600000;
+        }
+        // [DEBUG]
         const from = to - range;
         // fetch data
         const res = await $api.get(
