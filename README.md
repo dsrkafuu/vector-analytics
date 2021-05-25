@@ -6,6 +6,11 @@
 
 ## Introduction
 
+> Recent works:
+>
+> - [ ] Migrating to Vue CLI v5
+> - [ ] Migrating to Vue 3
+
 Minimal alternative to Google Analytics based on Vue.js and MongoDB.
 
 - [Documentation](https://aofuji.ink)
@@ -16,10 +21,6 @@ Minimal alternative to Google Analytics based on Vue.js and MongoDB.
 ### About the Project
 
 This project does not use semantic versioning until v1 is officially released, so please check the changelog carefully before each upgrade to see if it is still working properly.
-
-### About Vue.js
-
-Vue.js is in the transition phase from v2 to v3, and the project will continue to be based on v2 temporarily because the adaptation of the community ecosystem is not stable yet.
 
 ## Getting Started
 
@@ -50,7 +51,7 @@ Create a `.env.production` file and set the only required environment variable `
 echo "DATABASE_URL=mongodb://username:password@localhost:27017/dbname" > .env.production
 ```
 
-> Check out the [Environment Variables](environment-variables) for more optional variables.
+> Check out the [Environment Variables](https://aofuji.ink/docs/environment-variables) for more optional variables.
 
 #### Install Deps and Build
 
@@ -90,7 +91,7 @@ npm start
 
 First you need to fork this repo and clone it.
 
-Then create a `.env.development` then set the development environment variables above. Check the [Environment Variables](environment-variables) section for more details.
+Then create a `.env.development` then set the development environment variables above. Check the [Environment Variables](https://aofuji.ink/docs/environment-variables) section for more details.
 
 After these, you can simply:
 
