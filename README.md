@@ -75,7 +75,7 @@ When the server starts up at port 3000, you can expose it directly to the public
 
 ```sh
 git fetch
-git checkout v0.1.3 # latest tags will show in terminal when fetch
+git checkout v0.1.4 # latest tags will show in terminal when fetch
 ```
 
 #### Update Deps and Build
