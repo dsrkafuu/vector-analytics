@@ -8,8 +8,8 @@
 
 > Recent works:
 >
-> - [ ] Migrating to Vue CLI v5
-> - [ ] Migrating to Vue 3
+> - [ ] Migrating to Vue CLI v5 (Current: `5.0.0-beta.1`)
+> - [ ] Migrating to Vue 3 (Current: `~2.6.12`)
 
 Minimal alternative to Google Analytics based on Vue.js and MongoDB.
 
