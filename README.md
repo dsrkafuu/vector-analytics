@@ -45,10 +45,10 @@ git checkout v0.1.3
 
 #### Setup Environment Variables
 
-Create a `.env.production` file and set the only required environment variable `DATABASE_URL`. If you're using a locally installed MongoDB server, your setup looks like this:
+Create a `.env.production` file and set the only required environment variable `NODE_DATABASE_URL`. If you're using a locally installed MongoDB server, your setup looks like this:
 
 ```sh
-echo "DATABASE_URL=mongodb://username:password@localhost:27017/dbname" > .env.production
+echo "NODE_DATABASE_URL=mongodb://username:password@localhost:27017/dbname" > .env.production
 ```
 
 > Check out the [Environment Variables](https://aofuji.ink/docs/environment-variables) for more optional variables.

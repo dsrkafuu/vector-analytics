@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const fileName = process.env.VUE_APP_TRACKER_FILENAME || 'aofuji.min.js';
+const fileName = process.env.VUE_APP_TRACKER_FILE || 'aofuji.min.js';
 
 /**
  * build custom tracker to `dist`
