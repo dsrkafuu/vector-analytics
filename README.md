@@ -39,7 +39,7 @@ cd aofuji-analytics
 Checkout the latest release after cloned:
 
 ```sh
-git checkout v0.1.3
+git checkout v0.1.4
 ```
 
 > You can get the latest release tag at [release page](https://github.com/dsrkafuu/aofuji-analytics/releases).
