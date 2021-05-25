@@ -113,7 +113,7 @@ export default {
     }
 
     @include responsive(mobile) {
-      height: $realtime-hero-height / 1.25;
+      height: math.div($realtime-hero-height, 1.25);
       flex-direction: column;
     }
   }
