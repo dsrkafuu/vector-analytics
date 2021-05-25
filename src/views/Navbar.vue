@@ -39,11 +39,11 @@
           </template>
         </div>
         <div class="end">
-          <div class="select" v-if="showSelectWebsite">
-            <ASelect :map="websitesMap" v-model="curWebsite" />
+          <div v-if="showSelectWebsite" class="select">
+            <ASelect v-model="curWebsite" :map="websitesMap" />
           </div>
           <div class="ctrl">
-            <AButton class="item" type="full-height" v-if="showLogout" @click="handleLogout">
+            <AButton v-if="showLogout" class="item" type="full-height" @click="handleLogout">
               <AIconSignOut />
             </AButton>
             <AButton class="item" type="full-height" @click="handleThemeSwitch">

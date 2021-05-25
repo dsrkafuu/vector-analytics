@@ -1,5 +1,5 @@
 <template>
-  <div class="a-loading" v-if="loading || nodata">
+  <div v-if="loading || nodata" class="a-loading">
     <template v-if="loading">
       <AIconCircle :class="{ 'a-spin': loading }" />
       <span>Loading</span>
@@ -16,8 +16,8 @@ export default {
   name: 'ALoading',
 
   props: {
-    loading: { type: Boolean },
-    nodata: { type: Boolean },
+    loading: { type: Boolean, default: false },
+    nodata: { type: Boolean, default: false },
   },
 };
 </script>

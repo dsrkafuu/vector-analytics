@@ -4,25 +4,25 @@
       <AButton @click="handleExit">
         <AIconTimes />
       </AButton>
-      <AButton @click="handleCheck" :loading="awaitingCheck">
+      <AButton :loading="awaitingCheck" @click="handleCheck">
         <AIconCheck />
       </AButton>
     </AHeader>
-    <div class="line" v-show="_id">
+    <div v-show="_id" class="line">
       <span class="keyname">ID</span>
       <ALabel>{{ _id }}</ALabel>
     </div>
     <div class="line">
       <span class="keyname">Name</span>
-      <AInput class="name" v-model="name" />
+      <AInput v-model="name" class="name" />
     </div>
     <div class="line">
       <span class="keyname">URL</span>
-      <AInput class="domain" v-model="url" />
+      <AInput v-model="url" class="domain" />
     </div>
     <div class="line">
       <span class="keyname">Base URL</span>
-      <AInput class="domain" v-model="base" />
+      <AInput v-model="base" class="domain" />
     </div>
   </div>
 </template>

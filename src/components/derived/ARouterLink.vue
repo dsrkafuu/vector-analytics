@@ -1,10 +1,10 @@
 <template>
-  <router-link :to="to" v-slot="{ href, navigate, isActive }" custom>
+  <router-link v-slot="{ href, navigate, isActive }" :to="to" custom>
     <AButton
       :type="type"
       :href="href"
-      @click="navigate"
       :class="['a-router', { 'a-router-active': isActive }]"
+      @click="navigate"
     >
       <slot></slot>
     </AButton>
@@ -16,8 +16,8 @@ export default {
   name: 'ARouterLink',
 
   props: {
-    to: [String, Object],
-    type: String,
+    to: { type: [String, Object], default: '/' },
+    type: { type: String, default: '' },
   },
 };
 </script>

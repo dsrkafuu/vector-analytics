@@ -16,11 +16,11 @@ export default {
   name: 'DashboardChart',
 
   props: {
-    pvsData: { type: Array },
-    ussData: { type: Array },
-    rangeMap: { type: Object },
-    range: { type: String },
-    loading: { type: Boolean },
+    pvsData: { type: Array, default: () => [] },
+    ussData: { type: Array, default: () => [] },
+    rangeMap: { type: Object, default: () => ({}) },
+    range: { type: String, default: '' },
+    loading: { type: Boolean, default: false },
   },
   data() {
     return {

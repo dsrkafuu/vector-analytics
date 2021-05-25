@@ -5,9 +5,9 @@ const buildError = require('../utils/buildError');
 require('../models');
 
 // connect database
-const dbURL = process.env.DATABASE_URL;
+const dbURL = process.env.NODE_DATABASE_URL;
 if (!dbURL) {
-  throw buildError(500, 'env `DATABASE_URL` not set');
+  throw buildError(500, 'env `NODE_DATABASE_URL` not set');
 }
 mongoose.set('returnOriginal', false);
 mongoose

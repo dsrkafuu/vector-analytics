@@ -11,10 +11,10 @@ async function buildGeoLite() {
   // init geolite database url
   let url =
     'https://cdn.jsdelivr.net/gh/GitSquared/node-geolite2-redist@master/redist/GeoLite2-Country.tar.gz';
-  if (process.env.MAXMIND_LICENSE_KEY) {
+  if (process.env.NODE_MAXMIND_LICENSE_KEY) {
     url =
       'https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=' +
-      process.env.MAXMIND_LICENSE_KEY +
+      process.env.NODE_MAXMIND_LICENSE_KEY +
       '&suffix=tar.gz';
   }
 

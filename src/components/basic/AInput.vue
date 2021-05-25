@@ -3,10 +3,10 @@
     <input
       v-bind="$attrs"
       :value="value"
-      v-on="inputListeners"
       :type="type === 'password' && 'password'"
       autocomplete="on"
       autofocus="off"
+      v-on="inputListeners"
     />
   </div>
 </template>
@@ -16,9 +16,9 @@ export default {
   name: 'AInput',
 
   props: {
-    value: String,
-    type: String,
-    validator: [Function, Boolean],
+    value: { type: String, default: '' },
+    type: { type: String, default: '' },
+    validator: { type: [Function, Boolean], default: false },
   },
   data() {
     return {

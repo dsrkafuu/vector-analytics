@@ -15,7 +15,7 @@
           @keyup.enter="handleLogin"
         />
       </div>
-      <AButton class="submit" type="full-width" @click="handleLogin" :loading="awaitingLogin">
+      <AButton class="submit" type="full-width" :loading="awaitingLogin" @click="handleLogin">
         Login
       </AButton>
     </ACard>

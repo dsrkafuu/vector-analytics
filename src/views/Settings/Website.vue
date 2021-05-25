@@ -7,7 +7,7 @@
     </AHeader>
     <div class="content">
       <ALoading :loading="loading" :nodata="nodata" />
-      <AList :data="websites" type="extend" custom v-slot="{ item }">
+      <AList v-slot="{ item }" :data="websites" type="extend" custom>
         <div class="a-list-ctrl">
           <div class="a-list-ctrl-item">
             <AButton @click="handleShowCode(item.id)">
@@ -20,14 +20,14 @@
             </AButton>
           </div>
           <div class="a-list-ctrl-item">
-            <AButton @click="handleDelete(item.id)" :loading="item.id === awaitingDelete">
+            <AButton :loading="item.id === awaitingDelete" @click="handleDelete(item.id)">
               <AIconTrash />
             </AButton>
           </div>
         </div>
       </AList>
     </div>
-    <AModal type="alert" :show="Boolean(showCodeID)" @confirm="handleCloseCode" custom>
+    <AModal type="alert" :show="Boolean(showCodeID)" custom @confirm="handleCloseCode">
       <div class="code">
         <pre class="code-pre" v-text="fmtCode(showCodeID)"></pre>
       </div>

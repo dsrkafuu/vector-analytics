@@ -1,5 +1,43 @@
 <script>
 export default {
+  name: 'AButton',
+
+  props: {
+    type: {
+      type: String,
+      validator: (val) => {
+        return ['full-width', 'full-height', 'default'].includes(val);
+      },
+      default: 'default', // common button by default
+    },
+    href: { type: String, default: '' },
+    active: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
+    external: { type: Boolean, default: false },
+    loading: { type: Boolean, default: false },
+  },
+  computed: {
+    buttonClasses() {
+      return [
+        'a-button',
+        `a-button-${this.type}`,
+        {
+          'a-button-disabled': this.disabled,
+          'a-button-active': this.active,
+          'a-button-loading': this.loading,
+        },
+      ];
+    },
+  },
+
+  methods: {
+    handleClick(e) {
+      if (!this.disabled && !this.loading) {
+        this.$emit('click', e);
+      }
+    },
+  },
+
   render(h) {
     // init tag
     const tag = this.href ? 'a' : 'div';
@@ -26,44 +64,6 @@ export default {
     const icon = [h('AIconCircle', { class: 'a-spin' })];
     const slot = this.$slots.default;
     return h(tag, options, this.loading ? icon : slot);
-  },
-
-  name: 'AButton',
-
-  props: {
-    type: {
-      type: String,
-      validator: (val) => {
-        return ['full-width', 'full-height', 'default'].includes(val);
-      },
-      default: 'default', // common button by default
-    },
-    href: { type: String },
-    active: { type: Boolean },
-    disabled: { type: Boolean },
-    external: { type: Boolean },
-    loading: { type: Boolean },
-  },
-  computed: {
-    buttonClasses() {
-      return [
-        'a-button',
-        `a-button-${this.type}`,
-        {
-          'a-button-disabled': this.disabled,
-          'a-button-active': this.active,
-          'a-button-loading': this.loading,
-        },
-      ];
-    },
-  },
-
-  methods: {
-    handleClick(e) {
-      if (!this.disabled && !this.loading) {
-        this.$emit('click', e);
-      }
-    },
   },
 };
 </script>

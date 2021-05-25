@@ -1,6 +1,6 @@
 <template>
   <transition-group tag="div" name="a-message" class="a-message-wrapper">
-    <div :class="['a-message', `a-message-${item.type}`]" v-for="item of messages" :key="item.id">
+    <div v-for="item of messages" :key="item.id" :class="['a-message', `a-message-${item.type}`]">
       <span>{{ item.text }}</span>
       <AButton type="full-height" @click="handleClose(item.id)"><AIconTimes /></AButton>
     </div>

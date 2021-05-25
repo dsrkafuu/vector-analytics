@@ -1,7 +1,7 @@
 <template>
   <div class="account">
     <AHeader text="Account">
-      <AButton @click="handleCheck" :loading="awaitingCheck">
+      <AButton :loading="awaitingCheck" @click="handleCheck">
         <AIconCheck />
       </AButton>
     </AHeader>
@@ -12,11 +12,11 @@
       </div>
       <div class="line">
         <span class="keyname">Username</span>
-        <AInput class="name" v-model="username" :validator="validUsername" />
+        <AInput v-model="username" class="name" :validator="validUsername" />
       </div>
       <div class="line">
         <span class="keyname">Password</span>
-        <AInput class="pass" v-model="password" type="password" :validator="validPassword" />
+        <AInput v-model="password" class="pass" type="password" :validator="validPassword" />
       </div>
     </div>
   </div>

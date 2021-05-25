@@ -3,7 +3,7 @@
     <div class="a-statistic-title">{{ title }}</div>
     <div class="a-statistic-value">
       <ALoading :loading="loading" />
-      <span class="a-statistic-ctx" v-if="!loading">{{ fmtValue }}</span>
+      <span v-if="!loading" class="a-statistic-ctx">{{ fmtValue }}</span>
     </div>
   </div>
 </template>
@@ -22,9 +22,9 @@ export default {
       },
       default: 'number',
     },
-    title: { type: String },
-    value: { type: Number },
-    loading: { type: Boolean },
+    title: { type: String, default: '' },
+    value: { type: Number, default: NaN },
+    loading: { type: Boolean, default: false },
   },
   computed: {
     fmtValue() {

@@ -17,7 +17,7 @@ export default {
   name: 'RealtimeMap',
 
   props: {
-    data: { type: Array },
+    data: { type: Array, default: () => [] },
     loading: { type: Boolean },
   },
   data() {

@@ -4,17 +4,17 @@
       <AButton @click="handleExit">
         <AIconTimes />
       </AButton>
-      <AButton @click="handleCheck" :loading="awaitingCheck">
+      <AButton :loading="awaitingCheck" @click="handleCheck">
         <AIconCheck />
       </AButton>
     </AHeader>
     <div class="line">
       <span class="keyname">Website</span>
-      <ASelect :map="websitesMap" v-model="website" />
+      <ASelect v-model="website" :map="websitesMap" />
     </div>
     <div class="line">
       <span class="keyname">Expire</span>
-      <ASelect :map="expireMap" v-model="expire" />
+      <ASelect v-model="expire" :map="expireMap" />
     </div>
   </div>
 </template>

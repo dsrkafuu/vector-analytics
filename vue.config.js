@@ -3,7 +3,7 @@ module.exports = {
 
   // dev server proxy
   devServer: {
-    port: process.env.SERVER_PORT || 3000,
+    port: process.env.NODE_SERVER_PORT || 3000,
     proxy: {
       '/api': {
         target: `http://127.0.0.1:3022`,
@@ -16,7 +16,7 @@ module.exports = {
   css: {
     loaderOptions: {
       scss: {
-        additionalData: '@import "@/scss/variables.scss";',
+        additionalData: '@use "sass:math"; @import "@/scss/variables.scss";',
       },
     },
   },

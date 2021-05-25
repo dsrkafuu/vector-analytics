@@ -6,20 +6,22 @@
 
 ## Introduction
 
+> Recent works:
+>
+> - [ ] Migrating to Vue CLI v5 (Current: `5.0.0-beta.1`)
+> - [ ] Migrating to Vue 3 (Current: `~2.6.12`)
+
 Minimal alternative to Google Analytics based on Vue.js and MongoDB.
 
 - [Documentation](https://aofuji.ink)
 - [Dedicated Tracker](https://github.com/dsrkafuu/aofuji-tracker)
+- [Changelog](https://aofuji.ink/docs/changelog)
 
 ![Preview Image](https://raw.githubusercontent.com/dsrkafuu/aofuji-analytics/main/preview.png)
 
 ### About the Project
 
 This project does not use semantic versioning until v1 is officially released, so please check the changelog carefully before each upgrade to see if it is still working properly.
-
-### About Vue.js
-
-Vue.js is in the transition phase from v2 to v3, and the project will continue to be based on v2 temporarily because the adaptation of the community ecosystem is not stable yet.
 
 ## Getting Started
 
@@ -44,13 +46,13 @@ git checkout v0.1.3
 
 #### Setup Environment Variables
 
-Create a `.env.production` file and set the only required environment variable `DATABASE_URL`. If you're using a locally installed MongoDB server, your setup looks like this:
+Create a `.env.production` file and set the only required environment variable `NODE_DATABASE_URL`. If you're using a locally installed MongoDB server, your setup looks like this:
 
 ```sh
-echo "DATABASE_URL=mongodb://username:password@localhost:27017/dbname" > .env.production
+echo "NODE_DATABASE_URL=mongodb://username:password@localhost:27017/dbname" > .env.production
 ```
 
-> Check out the [Environment Variables](environment-variables) for more optional variables.
+> Check out the [Environment Variables](https://aofuji.ink/docs/environment-variables) for more optional variables.
 
 #### Install Deps and Build
 
@@ -90,7 +92,7 @@ npm start
 
 First you need to fork this repo and clone it.
 
-Then create a `.env.development` then set the development environment variables above. Check the [Environment Variables](environment-variables) section for more details.
+Then create a `.env.development` then set the development environment variables above. Check the [Environment Variables](https://aofuji.ink/docs/environment-variables) section for more details.
 
 After these, you can simply:
 
@@ -108,11 +110,11 @@ This project uses [husky](https://github.com/typicode/husky) and [lint-staged](h
 #### Options API Props Order
 
 ```
-render
 name => components
 props => data => computed => watch
 lifecycle functions
 methods
+render
 ```
 
 #### SCSS Scopes

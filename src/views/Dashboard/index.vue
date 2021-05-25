@@ -3,7 +3,7 @@
     <div class="row row-hero">
       <ACard class="summary">
         <div class="range">
-          <ASelect :map="rangeMap" v-model="range" />
+          <ASelect v-model="range" :map="rangeMap" />
         </div>
         <AStatistic title="Page Views" :value="pageViews" :loading="!inited" />
         <AStatistic title="Unique Visitors" :value="uniqueSessions" :loading="!inited" />

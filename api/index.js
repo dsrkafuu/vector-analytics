@@ -16,7 +16,7 @@ if (!process.env.SERVERLESS) {
     app.use(serveStatic('dist'));
   }
   // port listening
-  const port = production ? process.env.SERVER_PORT || 3000 : 3022;
+  const port = production ? process.env.NODE_SERVER_PORT || 3000 : 3022;
   app.listen(port, () => {
     console.log(`[aofuji]${production ? '' : 'dev api'} listening at http://localhost:${port}`);
   });
