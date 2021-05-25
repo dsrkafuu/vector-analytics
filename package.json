@@ -15,8 +15,8 @@
     "dev": "cross-env NODE_ENV=development env-cmd -f .env.development concurrently npm:dev:api npm:dev:web",
     "build:web": "vue-cli-service build",
     "build:api": "node utils/build.js",
-    "build": "cross-env NODE_ENV=production env-cmd -f .env.production concurrently -m 1 npm:lint:web npm:lint:api npm:build:web npm:build:api",
-    "start": "cross-env NODE_EsNV=production env-cmd -f .env.production node api/index.js"
+    "build": "cross-env NODE_ENV=production env-cmd -f .env.production --silent concurrently -m 1 npm:lint:web npm:lint:api npm:build:web npm:build:api",
+    "start": "cross-env NODE_EsNV=production env-cmd -f .env.production --silent node api/index.js"
   },
   "dependencies": {
     "aofuji-tracker": "~0.1.7",
