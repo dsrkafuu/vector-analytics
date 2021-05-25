@@ -3,7 +3,7 @@
     <AHeader text="About"></AHeader>
     <div class="test">
       <AButton @click="handleTest">Click Here to Test API</AButton>
-      <div class="test-api" v-if="testData">
+      <div v-if="testData" class="test-api">
         <pre>{{ testData }}</pre>
       </div>
     </div>

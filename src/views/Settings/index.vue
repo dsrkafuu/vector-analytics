@@ -6,8 +6,8 @@
           v-for="(tab, key) of tabsMap"
           :key="key"
           type="full-width"
-          @click.prevent="changeTab(key)"
           :active="key === curTab"
+          @click.prevent="changeTab(key)"
         >
           {{ tab.text }}
         </AButton>

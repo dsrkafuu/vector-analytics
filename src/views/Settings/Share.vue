@@ -7,7 +7,7 @@
     </AHeader>
     <div class="content">
       <ALoading :loading="loading" :nodata="nodata" />
-      <AList :data="shares" type="extend" custom v-slot="{ item }">
+      <AList v-slot="{ item }" :data="shares" type="extend" custom>
         <div class="a-list-ctrl">
           <div class="a-list-ctrl-item">
             <AButton @click="handleShowLink(item.id)">
@@ -15,14 +15,14 @@
             </AButton>
           </div>
           <div class="a-list-ctrl-item">
-            <AButton @click="handleDelete(item.id)" :loading="item.id === awaitingDelete">
+            <AButton :loading="item.id === awaitingDelete" @click="handleDelete(item.id)">
               <AIconTrash />
             </AButton>
           </div>
         </div>
       </AList>
     </div>
-    <AModal type="alert" :show="Boolean(shareLink)" @confirm="handleCloseLink" custom>
+    <AModal type="alert" :show="Boolean(shareLink)" custom @confirm="handleCloseLink">
       <div class="code">
         <pre class="code-pre" v-text="shareLink"></pre>
       </div>
