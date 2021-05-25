@@ -14,7 +14,7 @@ export default {
   name: 'AHeader',
 
   props: {
-    text: { type: String },
+    text: { type: String, default: '' },
   },
 };
 </script>

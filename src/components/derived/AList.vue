@@ -1,6 +1,6 @@
 <template>
   <div :class="['a-list', `a-list-${type}`]">
-    <div class="a-list-item" v-for="item of data" :key="item.key || item.id || item[0]">
+    <div v-for="item of data" :key="item.key || item.id || item[0]" class="a-list-item">
       <!-- key-value pair list -->
       <template v-if="Array.isArray(item) && item.length === 2">
         <div class="a-list-text">{{ item[0] }}</div>
@@ -14,7 +14,7 @@
           <div class="a-list-sub">{{ item.sub }}</div>
         </div>
         <div v-else class="a-list-text">{{ item.text }}</div>
-        <div class="a-list-label" v-if="item.label">
+        <div v-if="item.label" class="a-list-label">
           <span class="a-label">
             <ALabel>{{ item.label }}</ALabel>
           </span>
@@ -55,7 +55,7 @@ export default {
       },
       default: 'default', // common list by default
     },
-    custom: Boolean, // custom list
+    custom: { type: Boolean, default: false }, // custom list
   },
 };
 </script>

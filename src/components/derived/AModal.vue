@@ -1,5 +1,5 @@
 <template>
-  <div class="a-modal" v-if="show">
+  <div v-if="show" class="a-modal">
     <ACard class="a-modal-card">
       <div class="a-modal-body">
         <template v-if="custom">
@@ -10,7 +10,7 @@
         </template>
       </div>
       <div class="a-modal-ctrl">
-        <div class="a-modal-ctrl-item" v-if="type === 'confirm'">
+        <div v-if="type === 'confirm'" class="a-modal-ctrl-item">
           <AButton @click="$emit('cancel')">
             <AIconTimes />
           </AButton>
@@ -37,8 +37,8 @@ export default {
       },
       default: 'confirm', // confirm modal by default
     },
-    value: { type: String },
-    custom: { type: Boolean }, // custom modal body
+    value: { type: String, default: '' },
+    custom: { type: Boolean, default: false }, // custom modal body
   },
 };
 </script>

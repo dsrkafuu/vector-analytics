@@ -109,11 +109,11 @@ This project uses [husky](https://github.com/typicode/husky) and [lint-staged](h
 #### Options API Props Order
 
 ```
-render
 name => components
 props => data => computed => watch
 lifecycle functions
 methods
+render
 ```
 
 #### SCSS Scopes

@@ -1,11 +1,11 @@
 <template>
-  <div :class="['a-select', { 'a-select-active': active }]" v-clickout="handleClickOut">
+  <div v-clickout="handleClickOut" :class="['a-select', { 'a-select-active': active }]">
     <div class="a-select-input" @click="handleSwitch">
       <span>{{ selectedText }}</span>
       <AIconChevronUp v-if="active" />
       <AIconChevronDown v-else />
     </div>
-    <ul class="a-select-list" v-if="active">
+    <ul v-if="active" class="a-select-list">
       <li v-for="key of Object.keys(map)" :key="key" @click="handleSelect(key)">
         {{ map[key] ? map[key].text : '' }}
       </li>
@@ -18,14 +18,8 @@ export default {
   name: 'ASelect',
 
   props: {
-    map: {
-      type: Object,
-      required: true,
-    },
-    // for v-model
-    value: {
-      required: true,
-    },
+    map: { type: Object, required: true },
+    value: { type: String, required: true }, // for v-model
   },
   data() {
     return {

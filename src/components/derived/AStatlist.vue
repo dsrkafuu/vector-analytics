@@ -13,9 +13,9 @@ export default {
   name: 'AStatlist',
 
   props: {
-    title: { type: String },
-    data: { type: Array },
-    loading: { type: Boolean },
+    title: { type: String, default: '' },
+    data: { type: Array, default: () => [] },
+    loading: { type: Boolean, default: false },
   },
   computed: {
     nodata() {
