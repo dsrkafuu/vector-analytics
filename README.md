@@ -15,6 +15,7 @@ Minimal alternative to Google Analytics based on Vue.js and MongoDB.
 
 - [Documentation](https://aofuji.ink)
 - [Dedicated Tracker](https://github.com/dsrkafuu/aofuji-tracker)
+- [Changelog](https://aofuji.ink/docs/changelog)
 
 ![Preview Image](https://raw.githubusercontent.com/dsrkafuu/aofuji-analytics/main/preview.png)
 
