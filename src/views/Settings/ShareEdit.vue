@@ -2,10 +2,10 @@
   <div class="share-edit">
     <AHeader text="Create Share">
       <AButton @click="handleExit">
-        <AIconTimes />
+        <AIcon name="times" />
       </AButton>
       <AButton :loading="awaitingCheck" @click="handleCheck">
-        <AIconCheck />
+        <AIcon name="check" />
       </AButton>
     </AHeader>
     <div class="line">

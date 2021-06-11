@@ -2,10 +2,10 @@
   <div class="website-edit">
     <AHeader :text="`${_id ? 'Edit' : 'Add'} Website`">
       <AButton @click="handleExit">
-        <AIconTimes />
+        <AIcon name="times" />
       </AButton>
       <AButton :loading="awaitingCheck" @click="handleCheck">
-        <AIconCheck />
+        <AIcon name="check" />
       </AButton>
     </AHeader>
     <div v-show="_id" class="line">

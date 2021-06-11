@@ -1,18 +1,24 @@
-import { upperFirst, camelCase } from '@/utils/lodash';
-
 /**
- * @param {string} fileName
+ * @param {string} filename
  * @return {string}
  */
-function getComponentName(fileName) {
-  return upperFirst(
-    camelCase(
-      fileName
-        .split('/')
-        .pop()
-        .replace(/\.\w+$/, '')
-    )
-  );
+function getComponentName(filename) {
+  return filename
+    .split('/')
+    .pop()
+    .replace(/\.\w+$/, '');
+}
+
+/**
+ * @param {Vue} Vue vue constructor
+ * @param {Object} files files object from `import.meta.globEager`
+ */
+function registerComponent(Vue, files) {
+  Object.keys(files).forEach((filename) => {
+    const component = files[filename];
+    filename = getComponentName(filename);
+    Vue.component(filename, component.default || component);
+  });
 }
 
 export default {
@@ -20,27 +26,10 @@ export default {
    * @param {Vue} Vue
    */
   install(Vue) {
-    // icons
-    const requireIcons = require.context('../assets/icons', false, /.*\.svg$/);
-    requireIcons.keys().forEach((fileName) => {
-      const componentConfig = requireIcons(fileName);
-      const componentName = `AIcon${getComponentName(fileName)}`;
-      Vue.component(componentName, componentConfig.default || componentConfig);
-    });
-
-    // components
-    const requireBasic = require.context('../components/basic', false, /.*\.vue$/);
-    requireBasic.keys().forEach((fileName) => {
-      const componentConfig = requireBasic(fileName);
-      const componentName = getComponentName(fileName);
-      Vue.component(componentName, componentConfig.default || componentConfig);
-    });
-
-    const requireDerived = require.context('../components/derived', false, /.*\.vue$/);
-    requireDerived.keys().forEach((fileName) => {
-      const componentConfig = requireDerived(fileName);
-      const componentName = getComponentName(fileName);
-      Vue.component(componentName, componentConfig.default || componentConfig);
-    });
+    const basics = import.meta.globEager('../components/basic/*.vue');
+    console.log(basics);
+    const derives = import.meta.globEager('../components/derived/*.vue');
+    registerComponent(Vue, basics);
+    registerComponent(Vue, derives);
   },
 };

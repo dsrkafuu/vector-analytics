@@ -2,7 +2,9 @@
   <transition-group tag="div" name="a-message" class="a-message-wrapper">
     <div v-for="item of messages" :key="item.id" :class="['a-message', `a-message-${item.type}`]">
       <span>{{ item.text }}</span>
-      <AButton type="full-height" @click="handleClose(item.id)"><AIconTimes /></AButton>
+      <AButton type="full-height" @click="handleClose(item.id)">
+        <AIcon name="times" />
+      </AButton>
     </div>
   </transition-group>
 </template>
@@ -14,13 +16,13 @@
  * instead of using Vue.extend() directly
  */
 import AButton from '@/components/basic/AButton.vue';
-import AIconTimes from '@/assets/icons/times.svg';
+import AIcon from '@/components/AIcon.vue';
 
 export default {
   name: 'AMessage',
   components: {
     AButton,
-    AIconTimes,
+    AIcon,
   },
 
   // data and method from outer `Vue.extend()`

@@ -2,7 +2,7 @@
   <div class="share">
     <AHeader text="Share">
       <AButton @click="handleAdd">
-        <AIconPlus />
+        <AIcon name="plus" />
       </AButton>
     </AHeader>
     <div class="content">
@@ -11,12 +11,12 @@
         <div class="a-list-ctrl">
           <div class="a-list-ctrl-item">
             <AButton @click="handleShowLink(item.id)">
-              <AIconCode />
+              <AIcon name="code" />
             </AButton>
           </div>
           <div class="a-list-ctrl-item">
             <AButton :loading="item.id === awaitingDelete" @click="handleDelete(item.id)">
-              <AIconTrash />
+              <AIcon name="trash" />
             </AButton>
           </div>
         </div>

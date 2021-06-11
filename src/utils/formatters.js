@@ -75,7 +75,7 @@ export function fmtTime(time) {
 
 export function fmtCode(id = '') {
   const origin = window.location.origin;
-  let base = process.env.VUE_APP_BASE_URL || '/';
+  let base = import.meta.env.VITE_APP_BASE_URL || '/';
   if (!base.startsWith('/')) {
     base = '/' + base;
   }

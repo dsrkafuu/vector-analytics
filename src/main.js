@@ -9,17 +9,23 @@ import store from './store';
 import 'normalize.css';
 import './scss/index.scss';
 
+// icons
+import icons from './plugins/icons';
+Vue.use(icons);
+
+// components
+import components from './plugins/components';
+Vue.use(components);
+import message from './plugins/message';
+Vue.use(message);
+
+// plugins
+import axios from './plugins/axios';
+Vue.use(axios);
+
 // directives
 import clickout from './directives/clickout';
 Vue.directive('clickout', clickout);
-
-// plugins
-import VComponents from './plugins/components';
-Vue.use(VComponents);
-import AMessage from './plugins/message';
-Vue.use(AMessage);
-import Axios from './plugins/axios';
-Vue.use(Axios);
 
 import App from './App.vue';
 

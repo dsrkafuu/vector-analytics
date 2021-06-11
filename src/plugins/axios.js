@@ -46,7 +46,7 @@ function responseErrorInterceptor(e) {
 }
 
 // api
-let baseURL = process.env.VUE_APP_BASE_URL || '/';
+let baseURL = import.meta.env.VITE_APP_BASE_URL || '/';
 if (!baseURL.endsWith('/')) {
   baseURL += '/';
 }

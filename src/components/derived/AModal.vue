@@ -12,12 +12,12 @@
       <div class="a-modal-ctrl">
         <div v-if="type === 'confirm'" class="a-modal-ctrl-item">
           <AButton @click="$emit('cancel')">
-            <AIconTimes />
+            <AIcon name="times" />
           </AButton>
         </div>
         <div class="a-modal-ctrl-item">
           <AButton @click="$emit('confirm')">
-            <AIconCheck />
+            <AIcon name="check" />
           </AButton>
         </div>
       </div>

@@ -2,8 +2,8 @@
   <div v-clickout="handleClickOut" :class="['a-select', { 'a-select-active': active }]">
     <div class="a-select-input" @click="handleSwitch">
       <span>{{ selectedText }}</span>
-      <AIconChevronUp v-if="active" />
-      <AIconChevronDown v-else />
+      <AIcon name="chevron-up" v-if="active" />
+      <AIcon name="chevron-down" v-else />
     </div>
     <ul v-if="active" class="a-select-list">
       <li v-for="key of Object.keys(map)" :key="key" @click="handleSelect(key)">

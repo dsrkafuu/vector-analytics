@@ -1,11 +1,11 @@
 <template>
   <div v-if="loading || nodata" class="a-loading">
     <template v-if="loading">
-      <AIconCircle :class="{ 'a-spin': loading }" />
+      <AIcon name="circle" :spin="loading" />
       <span>Loading</span>
     </template>
     <template v-else>
-      <AIconExclamation />
+      <AIcon name="exclamation" />
       <span>No Data</span>
     </template>
   </div>
@@ -16,8 +16,14 @@ export default {
   name: 'ALoading',
 
   props: {
-    loading: { type: Boolean, default: false },
-    nodata: { type: Boolean, default: false },
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+    nodata: {
+      type: Boolean,
+      default: false,
+    },
   },
 };
 </script>

@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 import AMessage from '@/components/AMessage.vue';
 import { findIndex } from '@/utils/lodash';
 
@@ -64,21 +62,6 @@ function removeMessage(id) {
   }
 }
 
-// mount `AMessage` component directly to body
-const AMessageClass = Vue.extend(AMessage);
-const message = new AMessageClass({
-  data() {
-    return { messages };
-  },
-  methods: {
-    handleClose(id) {
-      removeMessage(id);
-    },
-  },
-});
-message.$mount();
-document.body.appendChild(message.$el);
-
 // exported functions
 export const $info = (text) => {
   triggerMessage({ type: 'default', text });
@@ -88,7 +71,27 @@ export const $error = (text) => {
 };
 
 export default {
+  /**
+   * @param {Vue} Vue
+   */
   install(Vue) {
+    // mount `AMessage` component directly to body
+    // which needs to import used components manually
+    const AMessageClass = Vue.extend(AMessage);
+    const message = new AMessageClass({
+      data() {
+        return { messages };
+      },
+      methods: {
+        handleClose(id) {
+          removeMessage(id);
+        },
+      },
+    });
+    message.$mount();
+    document.body.appendChild(message.$el);
+
+    // mount control functions
     Vue.prototype.$info = $info;
     Vue.prototype.$error = $error;
   },

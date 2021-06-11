@@ -44,10 +44,10 @@
           </div>
           <div class="ctrl">
             <AButton v-if="showLogout" class="item" type="full-height" @click="handleLogout">
-              <AIconSignOut />
+              <AIcon name="sign-out" />
             </AButton>
             <AButton class="item" type="full-height" @click="handleThemeSwitch">
-              <AIconAdjust />
+              <AIcon name="adjust" />
             </AButton>
           </div>
         </div>

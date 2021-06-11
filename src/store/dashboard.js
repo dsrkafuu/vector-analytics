@@ -56,7 +56,7 @@ export default {
       // calculate from to
       let to = Date.now();
       // [DEBUG]
-      if (process.env.VUE_APP_DEV_DATA) {
+      if (import.meta.env.VITE_APP_DEV_DATA) {
         to = 1618617600000;
       }
       // [DEBUG]
@@ -77,7 +77,7 @@ export default {
         // calculate from to
         let to = Date.now();
         // [DEBUG]
-        if (process.env.VUE_APP_DEV_DATA) {
+        if (import.meta.env.VITE_APP_DEV_DATA) {
           to = 1618617600000;
         }
         // [DEBUG]

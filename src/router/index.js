@@ -23,7 +23,7 @@ import { routes } from './routes';
 
 const router = new Router({
   mode: 'history',
-  base: process.env.VUE_APP_BASE_URL,
+  base: import.meta.env.VITE_APP_BASE_URL,
   routes,
 });
 

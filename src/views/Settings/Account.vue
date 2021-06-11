@@ -2,7 +2,7 @@
   <div class="account">
     <AHeader text="Account">
       <AButton :loading="awaitingCheck" @click="handleCheck">
-        <AIconCheck />
+        <AIcon name="check" />
       </AButton>
     </AHeader>
     <div class="content">
