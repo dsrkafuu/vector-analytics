@@ -249,7 +249,7 @@ export default {
     @include responsive(mobile) {
       height: unset;
 
-      ::v-deep &-ctx {
+      :deep(&-ctx) {
         min-height: 4rem;
       }
     }
@@ -274,12 +274,12 @@ export default {
       justify-content: center;
       align-items: center;
 
-      ::v-deep &-value {
+      :deep(&-value) {
         margin-top: 0;
         margin-left: 0;
         min-width: 6rem;
       }
-      ::v-deep &-ctx {
+      :deep(&-ctx) {
         font-size: $font-size-xl;
       }
     }
@@ -293,12 +293,12 @@ export default {
       justify-content: center;
       align-items: center;
 
-      ::v-deep &-value {
+      :deep(&-value) {
         margin-top: 0;
         margin-left: 2rem;
         min-width: 6rem;
       }
-      ::v-deep &-ctx {
+      :deep(&-ctx) {
         font-size: $font-size-xl;
       }
     }

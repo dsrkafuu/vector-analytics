@@ -160,7 +160,7 @@ export default {
     @include responsive(mobile) {
       height: 100%;
 
-      ::v-deep &-ctx {
+      :deep(&-ctx) {
         min-height: 4rem;
       }
     }
