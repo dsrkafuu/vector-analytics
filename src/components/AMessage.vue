@@ -77,7 +77,7 @@ export default {
   // animation
   transition: all 300ms ease;
 
-  &-enter,
+  &-enter-from,
   &-leave-to {
     opacity: 0;
   }
