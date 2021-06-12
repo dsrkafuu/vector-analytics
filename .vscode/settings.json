@@ -1,4 +1,9 @@
 {
+  "editor.tabSize": 2,
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
   "vetur.format.defaultFormatterOptions": {
     "prettier": {
       "printWidth": 100,
@@ -13,5 +18,6 @@
       "jsxBracketSameLine": false,
       "arrowParens": "always"
     }
-  }
+  },
+  "vetur.validation.template": false
 }

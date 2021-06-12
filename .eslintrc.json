@@ -1,0 +1,19 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended", // raw eslint rules
+    "plugin:vue/vue3-recommended", // vue 3
+    "prettier" // prettier conflict fix
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module"
+  },
+  "plugins": ["vue"],
+  "rules": {}
+}
