@@ -1,6 +1,4 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
-Vue.use(Vuex);
+import { createStore } from 'vuex';
 
 import theme from './theme';
 import common from './common';
@@ -8,7 +6,7 @@ import dashboard from './dashboard';
 import realtime from './realtime';
 import settings from './settings';
 
-export default new Vuex.Store({
+const store = createStore({
   modules: {
     theme,
     common,
@@ -17,3 +15,5 @@ export default new Vuex.Store({
     settings,
   },
 });
+
+export default store;
