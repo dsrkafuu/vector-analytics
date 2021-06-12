@@ -1,22 +1,21 @@
 /*! aofuji-analytics | DSRKafuU (https://dsrkafuu.su) | Copyright (c) MIT License */
 
-import { createApp } from 'vue';
-
 // styles
 import 'normalize.css';
 import './scss/index.scss';
 
 // init app
-import router from './router';
+import { createApp } from 'vue';
 import App from './App.vue';
-const app = createApp({
-  router,
-  ...App,
-});
+const app = createApp(App);
 
 // store
 import store from './store';
 app.use(store);
+
+// router
+import router from './router';
+app.use(router);
 
 // icons
 import icons from './plugins/icons';

@@ -3,9 +3,11 @@
     <Navbar />
 
     <main class="a-container">
-      <keep-alive :include="['Settings']">
-        <router-view />
-      </keep-alive>
+      <router-view v-slot="{ Component }">
+        <keep-alive :include="['Settings']">
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </main>
 
     <Footer />
