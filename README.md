@@ -8,8 +8,10 @@
 
 > Recent works:
 >
-> - [ ] Migrating to Vue CLI v5 (Current: `5.0.0-beta.1`)
-> - [ ] Migrating to Vue 3 (Current: `~2.6.12`)
+> - [x] Migrating to Vite
+> - [x] Migrating to Vue 3 Migration Build
+> - [ ] Migrating to Vue Router 4
+> - [ ] Migrating to Vuex 4
 
 Minimal alternative to Google Analytics based on Vue.js and MongoDB.
 
