@@ -1,9 +1,17 @@
 /*! aofuji-analytics | DSRKafuU (https://dsrkafuu.su) | Copyright (c) MIT License */
 
-import Vue from 'vue';
-Vue.config.productionTip = false;
+import { createApp } from 'vue';
+
+// init app
 import router from './router';
 import store from './store';
+import App from './App.vue';
+
+const app = createApp({
+  router,
+  store,
+  ...App,
+});
 
 // styles
 import 'normalize.css';
@@ -11,26 +19,27 @@ import './scss/index.scss';
 
 // icons
 import icons from './plugins/icons';
-Vue.use(icons);
+
+app.use(icons);
 
 // components
 import components from './plugins/components';
-Vue.use(components);
+
+app.use(components);
+
 import message from './plugins/message';
-Vue.use(message);
+
+app.use(message);
 
 // plugins
 import axios from './plugins/axios';
-Vue.use(axios);
+
+app.use(axios);
 
 // directives
 import clickout from './directives/clickout';
-Vue.directive('clickout', clickout);
 
-import App from './App.vue';
+app.directive('clickout', clickout);
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+// mount app
+app.mount('#app');
