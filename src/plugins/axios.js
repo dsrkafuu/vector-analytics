@@ -34,7 +34,7 @@ function responseErrorInterceptor(e) {
   const config = e.config;
   const method = config.method.toUpperCase();
   const src = (config.baseURL || '') + config.url;
-  const status = e.response.status || 418;
+  const status = e.response ? e.response.status || 418 : 418;
   logError(`#${config.id} -> ${method} ${src} (${status})} | ${config.time}`);
   // log error except login request
   if (!src.endsWith('api/login')) {
@@ -63,8 +63,11 @@ export const $api = api;
 export const $axios = xhr;
 
 export default {
-  install(Vue) {
-    Vue.prototype.$api = $api;
-    Vue.prototype.$axios = $axios;
+  /**
+   * @param {import('vue').App} app
+   */
+  install(app) {
+    app.config.globalProperties.$api = $api;
+    app.config.globalProperties.$axios = $axios;
   },
 };

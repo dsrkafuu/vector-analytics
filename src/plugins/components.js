@@ -10,26 +10,25 @@ function getComponentName(filename) {
 }
 
 /**
- * @param {Vue} Vue vue constructor
+ * @param {import('vue').App} app
  * @param {Object} files files object from `import.meta.globEager`
  */
-function registerComponent(Vue, files) {
+function registerComponent(app, files) {
   Object.keys(files).forEach((filename) => {
     const component = files[filename];
     filename = getComponentName(filename);
-    Vue.component(filename, component.default || component);
+    app.component(filename, component.default || component);
   });
 }
 
 export default {
   /**
-   * @param {Vue} Vue
+   * @param {import('vue').App} app
    */
-  install(Vue) {
+  install(app) {
     const basics = import.meta.globEager('../components/basic/*.vue');
-    console.log(basics);
     const derives = import.meta.globEager('../components/derived/*.vue');
-    registerComponent(Vue, basics);
-    registerComponent(Vue, derives);
+    registerComponent(app, basics);
+    registerComponent(app, derives);
   },
 };
