@@ -2,58 +2,78 @@
   <div :class="classes">
     <input
       v-bind="$attrs"
-      :value="value"
-      :type="type === 'password' && 'password'"
+      :value="modelValue"
+      :type="domType"
       autocomplete="on"
       autofocus="off"
-      v-on="inputListeners"
+      v-on="listeners"
     />
   </div>
 </template>
 
 <script>
+import { toRefs, ref, computed } from 'vue';
+
 export default {
+  compatConfig: {
+    MODE: 3,
+  },
+
   name: 'AInput',
 
   props: {
-    value: { type: String, default: '' },
-    type: { type: String, default: '' },
-    validator: { type: [Function, Boolean], default: false },
+    modelValue: {
+      type: String,
+      default: '',
+    },
+    type: {
+      type: String,
+      default: '',
+    },
+    validator: {
+      type: Function,
+      default: () => true,
+    },
   },
-  data() {
-    return {
-      focused: false,
+
+  emits: ['update:modelValue'],
+
+  setup(props, ctx) {
+    const { modelValue, type, validator } = toRefs(props);
+
+    // whether input focused
+    const focused = ref(false);
+
+    // whether input value valid
+    const valid = computed(() => validator.value(modelValue.value));
+
+    // input type
+    const domType = computed(() => (type.value === 'password' ? 'password' : null));
+
+    // custom listeners
+    const listeners = {
+      input: (evt) => {
+        ctx.emit('update:modelValue', evt.target.value);
+      },
+      focus: () => (focused.value = true),
+      blur: () => (focused.value = false),
     };
-  },
-  computed: {
-    // https://vuejs.org/v2/guide/components-custom-events.html#Binding-Native-Events-to-Components
-    inputListeners() {
-      return Object.assign({}, this.$listeners, {
-        input: (event) => {
-          this.$emit('input', event.target.value);
-        },
-        focus: () => (this.focused = true),
-        blur: () => (this.focused = false),
-      });
-    },
-    valid() {
-      let valid = true;
-      if (this.validator) {
-        valid = this.validator(this.value);
-      }
-      return valid;
-    },
-    // classes
-    classes() {
-      return [
-        'a-input',
-        {
-          'a-input-error': !this.valid,
-          'a-input-password': this.type === 'password',
-          'a-input-focus': this.focused,
-        },
-      ];
-    },
+
+    // component class
+    const classes = computed(() => [
+      'a-input',
+      {
+        'a-input-error': !valid.value,
+        'a-input-password': type.value === 'password',
+        'a-input-focus': focused.value,
+      },
+    ]);
+
+    return {
+      domType,
+      listeners,
+      classes,
+    };
   },
 };
 </script>
