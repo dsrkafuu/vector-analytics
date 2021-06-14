@@ -1,4 +1,6 @@
 <script>
+import { h, resolveComponent } from 'vue';
+
 export default {
   name: 'AButton',
 
@@ -16,6 +18,7 @@ export default {
     external: { type: Boolean, default: false },
     loading: { type: Boolean, default: false },
   },
+  emits: ['click'],
   computed: {
     buttonClasses() {
       return [
@@ -38,32 +41,32 @@ export default {
     },
   },
 
-  render(h) {
+  render() {
     // init tag
     const tag = this.href ? 'a' : 'div';
 
     // apply classes and dom props
-    const options = {
+    const props = {
       class: this.buttonClasses,
-      attrs: {
-        href: this.href,
-        // inherit all non-prop attributes
-        ...this.$attrs,
-      },
-      on: {
-        click: this.handleClick,
-      },
+      href: this.href,
+      onClick: this.handleClick,
+      // inherit all non-prop attributes
+      ...this.$attrs,
     };
 
     // if external
     if (this.external) {
-      options.attrs.target = '_blank';
-      options.attrs.rel = 'noopener';
+      props.target = '_blank';
+      props.rel = 'noopener';
     }
 
-    const icon = [h('AIconCircle', { class: 'a-spin' })];
-    const slot = this.$slots.default;
-    return h(tag, options, this.loading ? icon : slot);
+    return h(
+      tag,
+      props,
+      this.loading
+        ? [h(resolveComponent('AIcon'), { name: 'circle', spin: true })]
+        : this.$slots.default
+    );
   },
 };
 </script>

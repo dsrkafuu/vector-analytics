@@ -1,11 +1,11 @@
-import { createVNode, render } from 'vue';
+import { h, render } from 'vue';
 
 import AMessage from '@/components/AMessage.vue';
 import { console } from '@/utils/console';
 
 // mount `AMessage` component directly to body
 // which needs to import used components manually
-const vm = createVNode(AMessage);
+const vm = h(AMessage);
 render(vm, document.createElement('div'));
 const ctx = vm.component.ctx;
 if (!ctx.triggerMessage) {
