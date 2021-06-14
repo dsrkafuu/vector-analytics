@@ -1,15 +1,18 @@
 <template>
   <svg
+    v-if="validIcon"
     :class="['a-icon', { 'a-spin': spin }]"
     aria-hidden="true"
-    :width="realSize"
-    :height="realSize"
+    :width="iconSize"
+    :height="iconSize"
   >
     <use :xlink:href="symbolId" :fill="color" />
   </svg>
 </template>
 
 <script>
+import { computed, toRefs } from 'vue';
+
 // icon default size map
 const sizeMap = {
   adjust: '1.125em',
@@ -27,6 +30,9 @@ const sizeMap = {
 };
 
 export default {
+  // [vue 3 migration finished]
+  compatConfig: { MODE: 3 },
+
   name: 'AIcon',
 
   props: {
@@ -36,22 +42,32 @@ export default {
     },
     name: {
       type: String,
+      default: '',
     },
     size: {
       type: String,
+      default: '',
     },
     spin: {
       type: Boolean,
       default: false,
     },
   },
-  computed: {
-    symbolId() {
-      return `#icon-${this.name}`;
-    },
-    realSize() {
-      return sizeMap[this.name] || '1.25rem';
-    },
+
+  setup(props) {
+    const { name, size } = toRefs(props);
+
+    const validIcon = computed(() => name.value && sizeMap[name.value]);
+
+    const symbolId = computed(() => `#icon-${name.value}`);
+
+    const iconSize = computed(() => (size.value ? size.value : sizeMap[name.value]));
+
+    return {
+      validIcon,
+      symbolId,
+      iconSize,
+    };
   },
 };
 </script>

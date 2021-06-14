@@ -12,12 +12,11 @@
 </template>
 
 <script>
-import { toRefs, ref, computed } from 'vue';
+import { computed, ref, toRefs } from 'vue';
 
 export default {
-  compatConfig: {
-    MODE: 3,
-  },
+  // [vue 3 migration finished]
+  compatConfig: { MODE: 3 },
 
   name: 'AInput',
 
