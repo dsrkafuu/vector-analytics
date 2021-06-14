@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard-chart">
-    <ALoading :loading="loading" :nodata="nodata" />
+    <ALoading :loading="loading" :nodata="noData" />
     <div class="ctx">
       <canvas ref="chartRef"></canvas>
     </div>
@@ -28,10 +28,10 @@ export default {
     };
   },
   computed: {
-    data() {
+    combinedData() {
       return [this.pvsData, this.ussData];
     },
-    nodata() {
+    noData() {
       return this.pvsData.reduce((preVal, curVal) => preVal + curVal, 0) <= 0;
     },
     // theme
@@ -40,12 +40,15 @@ export default {
     },
   },
   watch: {
-    data(data) {
-      if (this.chart) {
-        this.updateChart(data[0], data[1]);
-      } else {
-        this.drawChart(data[0], data[1]);
-      }
+    combinedData: {
+      handler(val) {
+        if (this.chart) {
+          this.updateChart(val[0], val[1]);
+        } else {
+          this.drawChart(val[0], val[1]);
+        }
+      },
+      deep: true,
     },
     // watch theme change
     theme() {
@@ -54,8 +57,8 @@ export default {
   },
 
   mounted() {
-    if (!this.nodata) {
-      this.drawChart(this.data[0], this.data[1]);
+    if (!this.noData) {
+      this.drawChart(this.combinedData[0], this.combinedData[1]);
     }
   },
 
@@ -133,7 +136,7 @@ export default {
           // this.chart.update();
           // fix axis color not updated issue
           this.chart.destroy();
-          this.drawChart(this.data[0], this.data[1]);
+          this.drawChart(this.combinedData[0], this.combinedData[1]);
         }
       }
     },

@@ -35,12 +35,15 @@ export default {
     },
   },
   watch: {
-    data(data) {
-      if (this.chart) {
-        this.updateChart(data);
-      } else {
-        this.drawChart(data);
-      }
+    data: {
+      handler(val) {
+        if (this.chart) {
+          this.updateChart(val);
+        } else {
+          this.drawChart(val);
+        }
+      },
+      deep: true,
     },
     // watch theme change
     theme() {

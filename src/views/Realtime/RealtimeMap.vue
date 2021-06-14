@@ -37,12 +37,15 @@ export default {
     },
   },
   watch: {
-    async data(data) {
-      if (this.chart) {
-        await this.updateMap(data);
-      } else {
-        await this.drawMap(data);
-      }
+    data: {
+      async handler(val) {
+        if (this.chart) {
+          await this.updateMap(val);
+        } else {
+          await this.drawMap(val);
+        }
+      },
+      deep: true,
     },
     // watch theme change
     async theme() {
