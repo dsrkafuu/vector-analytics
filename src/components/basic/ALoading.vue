@@ -40,7 +40,7 @@ export default {
   align-items: center;
   gap: $space-xs;
   font-size: $font-size-sm;
-  z-index: 20;
+  z-index: 5;
   background-color: var(--color-bg);
   min-width: 6rem;
 }

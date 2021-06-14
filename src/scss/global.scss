@@ -20,18 +20,18 @@ body {
 
 #app {
   min-height: 100%;
-  z-index: 1;
+  z-index: 0;
 }
 
 #message {
-  z-index: 2;
+  z-index: 10;
   position: fixed;
   right: 2rem;
   bottom: 2rem;
 }
 
 #modal {
-  z-index: 3;
+  z-index: 100;
 }
 
 // reset
