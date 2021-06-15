@@ -5,7 +5,7 @@
   "author": "DSRKafuU <dsrkafuu@outlook.com> (https://dsrkafuu.su)",
   "license": "MIT",
   "scripts": {
-    "postinstall": "husky install",
+    "prepare": "husky install",
     "vercel-build": "npm run build",
     "lint:web": "eslint --ext .js,.jsx,.vue src",
     "lint:api": "eslint --ext .js api",
